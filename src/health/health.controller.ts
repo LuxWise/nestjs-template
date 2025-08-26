@@ -5,8 +5,6 @@ export class HealthController {
 
   @Get()
   getHealth(): string {
-    const test = "test"
-    console.log(test);
     return 'Server is running';
   }
 }
