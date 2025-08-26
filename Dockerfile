@@ -11,7 +11,6 @@ ENV NODE_ENV=develop
 RUN npm install -g pnpm@10.15.0
 COPY package.json pnpm-lock.yaml ./
 
-
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ".npmrc" && \
   pnpm install --frozen-lockfile && \
   rm -f .npmrc
