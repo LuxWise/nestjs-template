@@ -21,4 +21,5 @@ COPY nest-cli.json .
 COPY src src
 
 EXPOSE $PORT
+EXPOSE 9229
 CMD [ "node", "--run", "dev" ]
