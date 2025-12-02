@@ -16,3 +16,18 @@ services:
       - "9229:9229"
     volumes:
       - ./src:/app/src
+
+  prod-mode:
+    container_name: prod-mode
+    restart: unless-stopped
+    build:
+      target: prod
+      context: .
+    ports:
+      - "3000:3000"
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    command: tunnel --no-autoupdate --url http://prod-mode:3000
+    restart: unless-stopped
