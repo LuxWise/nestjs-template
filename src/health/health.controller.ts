@@ -4,7 +4,10 @@ import { Controller, Get } from '@nestjs/common';
 export class HealthController {
 
   @Get()
-  getHealth(): string {
-    return 'Server is running';
+  getHealth(): HealthResponse {
+    return {
+      success: true,
+      message: 'Server is running'
+    }
   }
 }
